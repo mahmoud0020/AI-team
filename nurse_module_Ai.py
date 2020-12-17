@@ -21,7 +21,7 @@ import random
 
 def intialization():
     
-        parent=[];
+        
         #this loop generate chromosome random and handle hard constraint
         rand=random.randrange(0,4,1);
         chromosome=[rand];
@@ -40,9 +40,8 @@ def intialization():
             chromosome[j*7+rand]=0;
             j+=1
         
-        temp="";
+        temp=""
         temp1=""
-        parent.append(chromosome);
         i=0
         while(i<98):
             temp=str(chromosome[i])
