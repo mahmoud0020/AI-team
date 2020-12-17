@@ -20,41 +20,37 @@ import random
 #-----------------------------------------------------------------------------#
 
 def intialization():
-   parent=[];
-   j=0;
-   while j<14:
-            #this loop generate chromosome random and handle hard constraint
+    
+        parent=[];
+        #this loop generate chromosome random and handle hard constraint
         rand=random.randrange(0,4,1);
         chromosome=[rand];
         i=1;
         while i<98:
-            rand=random.randrange(0,4,1);
+            rand=random.randrange(1,4,1);
             if rand==1 and chromosome[i-1]==3:
                 continue;
             else:
                 chromosome.append(rand);
                 i+=1; 
+        #here i make every nerse have one holiday at most
+        j=0;
+        while j<14:
+            rand=random.randrange(0,7,1);
+            chromosome[j*7+rand]=0;
+            j+=1
+        
+        temp="";
+        temp1=""
         parent.append(chromosome);
-        j+=1
-   return parent;    
-#-----------------------------------------------------------------------------#
-#this function print parent generate form intialization function
-#-----------------------------------------------------------------------------#
+        i=0
+        while(i<98):
+            temp=str(chromosome[i])
+            temp1+=temp
+            i+=1;
+        return temp1;
 
-def printParent(parent=0):
-    if parent==0:
-        print("the value null in parent plaese bass the parent to this function ")
-        return 0
-    j=0
-    while j<len(parent):
-        i=1
-        n=0
-        print("p",j)
-        while i<=14:
-            print(parent[j][n:i*7])
-            i+=1
-            n+=7
-        j+=1
+
 
 #-----------------------------------------------------------------------------#
 #this function is calculate fitness of chromosome
@@ -84,6 +80,6 @@ def printParent(parent=0):
 #-----------------------------------------------------------------------------#
 if __name__ == "__main__":
     intial=intialization();
-    printParent(intial);
+    
 
     
