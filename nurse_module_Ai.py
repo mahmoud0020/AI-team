@@ -23,7 +23,7 @@ def intialization():
     
         
         #this loop generate chromosome random and handle hard constraint
-        rand=random.randrange(0,4,1);
+        rand=random.randrange(1,4,1);
         chromosome=[rand];
         i=1;
         while i<98:
