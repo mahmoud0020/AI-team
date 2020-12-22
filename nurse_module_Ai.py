@@ -59,7 +59,17 @@ def intialization():
 #-----------------------------------------------------------------------------#
 #this function is select based on fitness function 
 #-----------------------------------------------------------------------------#
-
+def selection(fitnessList,population):
+    i=0;
+    sumOfFitness=0;
+    while i<len(fitnessList):
+        sumOfFitness+=fitnessList[i]
+    pick=random.randrange(0,sumOfFitness,1);
+    current =0;
+    for chromosome in population:
+        current+=chromosome.fitness
+        if current > pick:
+            return chromosome
 
 
 #-----------------------------------------------------------------------------#
